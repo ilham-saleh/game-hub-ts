@@ -1,4 +1,4 @@
-import { Text, HStack, Image } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
 
 import ColorSwitch from "./ColorSwitch";
 import logo from "../assets/logo/logo.webp";
