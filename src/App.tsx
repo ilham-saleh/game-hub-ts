@@ -10,7 +10,7 @@ function App() {
         "aside main"`,
       }}
     >
-      <GridItem area="nav" bg="tomato">
+      <GridItem area="nav">
         <Navigation />
       </GridItem>
       <Show above="lg">
