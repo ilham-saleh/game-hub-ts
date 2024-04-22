@@ -1,8 +1,8 @@
-import useGenre, { Genre } from "../hooks/useGenre";
+import useGenre from "../hooks/useGenre";
 
 type Props = {};
 
-const GenreList = (props: Props) => {
+const GenreList = () => {
   const { data, loading, error } = useGenre();
 
   return (
