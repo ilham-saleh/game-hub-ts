@@ -1,13 +1,13 @@
-import useGenre from "../hooks/useGenre";
+import useGenre, { Genre } from "../hooks/useGenre";
 
 type Props = {};
 
 const GenreList = (props: Props) => {
-  const { genres, loading, error } = useGenre();
+  const { data, loading, error } = useGenre();
 
   return (
     <div>
-      {genres.map((genre) => (
+      {data.map((genre) => (
         <p>{genre.name}</p>
       ))}
     </div>
