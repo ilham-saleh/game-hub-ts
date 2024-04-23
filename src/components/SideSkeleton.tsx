@@ -1,11 +1,4 @@
-import {
-  Box,
-  HStack,
-  Skeleton,
-  SkeletonCircle,
-  SkeletonText,
-  Stack,
-} from "@chakra-ui/react";
+import { HStack, Skeleton, SkeletonCircle, Stack } from "@chakra-ui/react";
 
 const SideSkeleton = () => {
   return (
