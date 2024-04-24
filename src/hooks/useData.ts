@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { AxiosRequestConfig } from "axios";
+import { toast } from "react-toastify";
 
 interface FetchingResponse<T> {
   count: number;
@@ -13,7 +14,6 @@ const useData = <T>(
   deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   //   const controller = new AbortController();
@@ -29,7 +29,7 @@ const useData = <T>(
         })
         .catch((err) => {
           // if (err instanceof CanceledError) return;
-          setError(err.message);
+          toast(err.message);
           setLoading(false);
         });
 
@@ -38,7 +38,7 @@ const useData = <T>(
     deps ? [...deps] : []
   );
 
-  return { data, error, loading };
+  return { data, loading };
 };
 
 export default useData;

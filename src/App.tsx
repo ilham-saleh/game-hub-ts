@@ -7,6 +7,8 @@ import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -57,6 +59,7 @@ function App() {
         </HStack>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
+      <ToastContainer />
     </Grid>
   );
 }
