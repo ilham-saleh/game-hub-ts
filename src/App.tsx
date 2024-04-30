@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import Navigation from "./components/Navigation";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -9,6 +9,7 @@ import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Heading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -29,7 +30,7 @@ function App() {
       }}
       templateColumns={{
         base: "1fr",
-        lg: "250px 1fr",
+        lg: "200px 1fr",
       }}
     >
       <GridItem area="nav">
@@ -46,20 +47,23 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <HStack spacing={5} paddingLeft={2} marginBottom={2}>
-          <PlatformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
-            }
-          />
-          <SortSelector
-            sortOrder={gameQuery.sortOrder}
-            onSelectSortOrder={(sortOrder) =>
-              setGameQuery({ ...gameQuery, sortOrder })
-            }
-          />
-        </HStack>
+        <Box paddingLeft={2}>
+          <Heading gameQuery={gameQuery} />
+          <HStack spacing={5} marginBottom={2}>
+            <PlatformSelector
+              selectedPlatform={gameQuery.platform}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+            />
+            <SortSelector
+              sortOrder={gameQuery.sortOrder}
+              onSelectSortOrder={(sortOrder) =>
+                setGameQuery({ ...gameQuery, sortOrder })
+              }
+            />
+          </HStack>
+        </Box>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
       <ToastContainer />
