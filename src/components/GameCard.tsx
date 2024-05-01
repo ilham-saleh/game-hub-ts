@@ -29,3 +29,4 @@ const GameCard = ({ game }: Props) => {
 };
 
 export default GameCard;
+

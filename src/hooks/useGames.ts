@@ -1,5 +1,6 @@
 import { GameQuery } from "../App";
 import useData from "./useData";
+// import gamesData from "../gamesData";
 // import { CanceledError } from "axios";
 
 export interface Platform {
