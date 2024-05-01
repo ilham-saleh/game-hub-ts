@@ -41,10 +41,28 @@ Welcome to the **Playzone Project**, a web application built with React and Type
 
 ## Installation
 
-1. [Clone this repository:](git@github.com:ilham-saleh/game-hub-ts.git)
+Clone the Repository:
 
-## Install dependencies
-`npm install`
+1. Copy code
 
-## Run the app
-`npm run dev`
+```bash
+git clone git@github.com:ilham-saleh/my-portfolio.git
+```
+
+2. Navigate to Project Directory:
+
+```bash
+cd game-hub-ts
+```
+
+3. Install Dependencies:
+
+```bash
+npm install
+```
+
+Start the Development Server:
+
+```bash
+npm run dev
+```
