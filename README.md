@@ -1,30 +1,50 @@
-# React + TypeScript + Vite
+# Playzone Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Playzone Project**, a web application built with React and TypeScript! This project aims to provide users with a fun and interactive platform to explore various games, rate them, and switch themes. Let's dive into the details:
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Game Viewing:**
 
-## Expanding the ESLint configuration
+   - Users can explore a wide range of games.
+   - Different game categories are available for selection.
+   - Platform filters allow users to find games specific to their preferred platforms.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. **Sorting:**
 
-- Configure the top-level `parserOptions` property like this:
+   - Games can be sorted based on various criteria (e.g., popularity, release date, rating).
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+3. **Search Functionality:**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   - Users can search for games using keywords.
+   - The search feature helps users quickly find their favorite games.
+
+4. **Theme Switching:**
+
+   - The website supports light and dark themes.
+   - Users can switch between themes based on their preference.
+
+5. **Game Ratings:**
+
+   - Users can rate games they've played.
+   - Ratings contribute to the overall game score.
+
+6. **Game Information:**
+   - Detailed information about each game is available.
+   - Users can learn about game mechanics, storyline, and more.
+
+## Tech Stack
+
+- **React:** A popular JavaScript library for building user interfaces.
+- **TypeScript:** A statically typed superset of JavaScript that enhances code quality and maintainability.
+- **Chakra UI:** A component library for React that provides a set of accessible and customizable UI components.
+
+## Installation
+
+1. [Clone this repository:](git@github.com:ilham-saleh/game-hub-ts.git)
+
+## Install dependencies
+`npm install`
+
+## Run the app
+`npm run dev`
