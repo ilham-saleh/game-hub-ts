@@ -46,7 +46,7 @@ Clone the Repository:
 1. Copy code
 
 ```bash
-git clone git@github.com:ilham-saleh/my-portfolio.git
+git git@github.com:ilham-saleh/game-hub-ts.git
 ```
 
 2. Navigate to Project Directory:
