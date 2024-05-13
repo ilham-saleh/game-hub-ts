@@ -4,6 +4,7 @@ import GameCard from "./GameCard";
 import CardSkeleton from "./CardSkeleton";
 import { GameQuery } from "../App";
 import React from "react";
+// import InfiniteScroll from "react-infinite-scroll-component";
 
 interface Props {
   gameQuery: GameQuery;
@@ -14,6 +15,9 @@ const GameGrid = ({ gameQuery }: Props) => {
     useGames(gameQuery);
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  // const fetchedGamesCount =
+  //   data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
 
   return (
     <div>
@@ -28,6 +32,12 @@ const GameGrid = ({ gameQuery }: Props) => {
           ))}
         </SimpleGrid>
       )}
+      {/* <InfiniteScroll
+        dataLength={fetchedGamesCount}
+        hasMore={!!hasNextPage}
+        next={() => fetchNextPage()}
+        loader={<Spinner />}
+      > */}
       <SimpleGrid
         spacing={4}
         columns={{ sm: 1, md: 2, lg: 3, xl: 4, "2xl": 5 }}
@@ -41,6 +51,7 @@ const GameGrid = ({ gameQuery }: Props) => {
           </React.Fragment>
         ))}
       </SimpleGrid>
+      {/* </InfiniteScroll> */}
       <Box marginBlock={2} display="flex" justifyContent="center">
         {hasNextPage && (
           <Button onClick={() => fetchNextPage()}>
