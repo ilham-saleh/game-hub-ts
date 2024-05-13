@@ -1,13 +1,12 @@
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import useData from "./useData";
+import apiClient from "../services/api-client";
+import { FetchingResponse } from "../services/api-client";
+import { Platform } from "./usePlatforms";
+
+// import useData, { FetchingResponse } from "./useData";
 // import gamesData from "../gamesData";
 // import { CanceledError } from "axios";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
 
 export interface Game {
   id: number;
@@ -20,17 +19,40 @@ export interface Game {
 }
 
 const useGames = (gameQuery: GameQuery) =>
-  useData<Game>(
-    "/games",
-    {
-      params: {
-        genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder,
-        search: gameQuery.searchText,
-      },
+  useInfiniteQuery<FetchingResponse<Game>, Error>({
+    queryKey: ["games", gameQuery],
+    queryFn: ({ pageParam = 1 }) =>
+      apiClient
+        .get<FetchingResponse<Game>>("/games", {
+          params: {
+            // _start: (pageParam - 1) * pageQuery.pageSize,
+            // _limit: pageQuery.pageSize,
+            genres: gameQuery.genre?.id,
+            parent_platforms: gameQuery.platform?.id,
+            ordering: gameQuery.sortOrder,
+            search: gameQuery.searchText,
+            page: pageParam,
+          },
+        })
+        .then((res) => res.data),
+    keepPreviousData: true,
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.next ? allPages.length + 1 : undefined;
     },
-    [gameQuery]
-  );
+  });
+
+// const useGames = (gameQuery: GameQuery) =>
+//   useData<Game>(
+//     "/games",
+//     {
+//       params: {
+//         genres: gameQuery.genre?.id,
+//         platforms: gameQuery.platform?.id,
+//         ordering: gameQuery.sortOrder,
+//         search: gameQuery.searchText,
+//       },
+//     },
+//     [gameQuery]
+//   );
 
 export default useGames;
