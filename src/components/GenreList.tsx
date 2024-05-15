@@ -11,10 +11,10 @@ import SideSkeleton from "./SideSkeleton";
 
 type Props = {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number
 };
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const { data, isLoading } = useGenre();
 
   const numOfSkeletons = [
@@ -44,7 +44,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
                 objectFit="cover"
               />
               <Button
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
                 onClick={() => onSelectGenre(genre)}
                 variant="link"
                 fontSize="lg"
