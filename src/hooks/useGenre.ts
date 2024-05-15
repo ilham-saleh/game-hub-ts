@@ -11,7 +11,9 @@ export interface Genre {
 const useGenre = () =>
   useQuery({
     queryKey: ["genres"],
-    queryFn: () => apiClient.get<FetchingResponse<Genre>>("/genres").then((res) => res.data),
+    queryFn: () =>
+      apiClient.get<FetchingResponse<Genre>>("/genres").then((res) => res.data),
+    staleTime: 24 * 60 * 60 * 1000,
   });
 
 // // import genres from "../genresData";
