@@ -1,22 +1,9 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
 import { FetchingResponse } from "../services/api-client";
-import { Platform } from "./usePlatforms";
 import useGameStore from "../zustand/useGameStore";
+import { Game } from "../entities/Game";
 
-// import useData, { FetchingResponse } from "./useData";
-// import gamesData from "../gamesData";
-// import { CanceledError } from "axios";
-
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
-  rating_top: number;
-  released: string;
-}
 
 const useGames = () => {
   const { gameQuery } = useGameStore();
