@@ -4,13 +4,13 @@ import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
 import ExpandableText from "../components/ExpandableText";
 import GameAttributes from "../components/GameAttributes";
 import GameTrailer from "../components/GameTrailer";
+import Screenshots from "../components/Screenshots";
 
 const GameDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   // const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const { data: game, isLoading, error } = useGame(slug!); // Non-null assertion since slug should be defined
-  console.log(game);
 
   if (isLoading) <Spinner />;
 
@@ -35,6 +35,7 @@ const GameDetail = () => {
 
       <GameAttributes game={game} />
       <GameTrailer id={game.id} />
+      <Screenshots gameId={game.id} />
     </Box>
   );
 };
