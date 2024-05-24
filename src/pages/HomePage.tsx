@@ -1,6 +1,5 @@
 import { Box, Grid, GridItem, HStack, Heading, Show } from "@chakra-ui/react";
 
-import Navigation from "../components/Navigation";
 import GenreList from "../components/GenreList";
 import PlatformSelector from "../components/PlatformSelector";
 import SortSelector from "../components/SortSelector";
