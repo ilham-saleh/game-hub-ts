@@ -16,7 +16,7 @@ const GameTrailer = ({ id }: Props) => {
   const trailer = data.results[0];
 
   return (
-    <video width="100%" poster={trailer.preview} controls>
+    <video width="100%" poster={trailer.preview} autoPlay controls>
       <source src={trailer.data.max} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
