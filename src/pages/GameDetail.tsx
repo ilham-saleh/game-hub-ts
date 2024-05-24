@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useGame from "../hooks/useGame";
-import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import ExpandableText from "../components/ExpandableText";
 import GameAttributes from "../components/GameAttributes";
 import GameTrailer from "../components/GameTrailer";
@@ -27,16 +27,20 @@ const GameDetail = () => {
   if (!game) return <Text>No game found.</Text>;
 
   return (
-    <Box paddingX={4}>
-      <Heading>{game?.name}</Heading>
-      <ExpandableText>
-        {game?.description_raw || "No description available"}
-      </ExpandableText>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2} paddingX={5}>
+      <Box>
+        <Heading>{game?.name}</Heading>
+        <ExpandableText>
+          {game?.description_raw || "No description available"}
+        </ExpandableText>
 
-      <GameAttributes game={game} />
-      <GameTrailer id={game.id} />
-      <Screenshots gameId={game.id} />
-    </Box>
+        <GameAttributes game={game} />
+      </Box>
+      <Box>
+        <GameTrailer id={game.id} />
+        <Screenshots gameId={game.id} />
+      </Box>
+    </SimpleGrid>
   );
 };
 

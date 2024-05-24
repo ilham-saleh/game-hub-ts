@@ -5,6 +5,7 @@ import GameCard from "./GameCard";
 import CardSkeleton from "./CardSkeleton";
 import React from "react";
 import { Link } from "react-router-dom";
+import GameHeading from "./GameHeading";
 // import InfiniteScroll from "react-infinite-scroll-component";
 
 const GameGrid = () => {
@@ -18,6 +19,7 @@ const GameGrid = () => {
 
   return (
     <div>
+      <GameHeading />
       {isLoading && (
         <SimpleGrid
           columns={{ sm: 1, md: 2, lg: 3, xl: 4, "2xl": 5 }}
